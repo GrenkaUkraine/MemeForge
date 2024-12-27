@@ -1,6 +1,5 @@
 import { DemotivatorGenerator } from '../src/index.mjs';
 import path from 'path';
-import { ImageLoader } from '../src/utils/ImageLoader.mjs';
 
 
 
@@ -8,19 +7,18 @@ class TestMemeForge {
     constructor(testDir = "test/") {
         this.testDir = testDir;
         this.testImagePath = path.join(this.testDir, 'test-image.jpg');
-        this.testImage = new ImageLoader(this.testImagePath);
         this.testOutputDir = path.join(this.testDir, 'output');
     }
 
     async testDemotivator() {
-        const testName = 'demotivator';
+        const testName = 'Demotivator';
 
 
         const demotivatorGenerator = new DemotivatorGenerator(
             this.testImagePath
         );
 
-        await demotivatorGenerator.generate(testName, "Bottom text");
+        await demotivatorGenerator.generate(testName, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pharetra eu magna eu ultrices. Vestibulum massa risus, interdum volutpat pharetra cursus, ullamcorper eget leo. In eleifend est nec metus tempor, eu interdum erat sodales. Nullam egestas feugiat enim id elementum. Sed massa nisi, convallis nec arcu nec, interdum pharetra odio. Aliquam vitae auctor neque. Maecenas nec sem in quam pulvinar pellentesque nec sed lacus.");
 
         demotivatorGenerator.saveToFile(path.join(this.testOutputDir, testName + ".png"));
     }

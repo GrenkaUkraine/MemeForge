@@ -6,8 +6,8 @@ export class FontSettings {
         this.fontColor = fontColor;
     }
 
-    static getDefault(fontSize = 20) {
-        return new FontSettings('Arial', fontSize, 'normal', 'white');
+    static getDefault(fontSize = 20, fontWeight = 'normal') {
+        return new FontSettings('Arial', fontSize, fontWeight, 'white');
     }
 
     applySettings(context) {

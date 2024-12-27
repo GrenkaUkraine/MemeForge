@@ -4,38 +4,45 @@ import path from 'path';
 import { PathUtil } from '../utils/SaveUtil.mjs';
 
 export class BaseGenerator {
-  constructor(width = 800, height = 600) {
-    this.recreateCanvas(width, height);
-  }
+    constructor(width = 800, height = 600) {
+        this.recreateCanvas(width, height);
+    }
 
-  recreateCanvas(width = 800, height = 600) {
-    this.canvas = createCanvas(width, height);
-    this.context = this.canvas.getContext('2d');
-  }
+    recreateCanvas(width = 800, height = 600) {
+        this.canvas = createCanvas(width, height);
+        this.context = this.canvas.getContext('2d');
+    }
 
-  getCanvas() {
-    return this.canvas;
-  }
+    getCanvas() {
+        return this.canvas;
+    }
 
-  getContext() {
-    return this.context;
-  }
+    getContext() {
+        return this.context;
+    }
 
-  saveToFile(filename) {
-    const dir = path.dirname(filename);
+    saveToFile(filename) {
+        if (!this.canvas) {
+            throw new Error("Canvas is not initialized");
+        }
+        if (!this.context) {
+            throw new Error("Canvas context is not initialized");
+        }
+        
 
-    PathUtil.ensureDirExists(dir);
+        const dir = path.dirname(filename);
+        PathUtil.ensureDirExists(dir);
+    
+        try {
+            const buffer = this.canvas.toBuffer("image/png");
+            return fs.promises.writeFile(filename, buffer);
+        } catch (error) {
+            console.error("Error during buffer generation:", error);
+            throw error;
+        }
+    }
 
-    const out = fs.createWriteStream(filename);
-    const stream = this.canvas.createPNGStream();
-    stream.pipe(out);
-    return new Promise((resolve, reject) => {
-      out.on('finish', () => resolve(filename));
-      out.on('error', reject);
-    });
-  }
-
-  generate() {
-    throw new Error('Method "generate" must be implemented in child class');
-  }
+    generate() {
+        throw new Error('Method "generate" must be implemented in child class');
+    }
 }
