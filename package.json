@@ -18,13 +18,13 @@
   ],
   "author": "GrenkaUkraine",
   "license": "MIT",
-  "homepage": "https://github.com/ваш-username/memeforge#readme",
+  "homepage": "https://github.com/GrenkaUkraine/MemeForge#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ваш-username/memeforge.git"
+    "url": "git+https://github.com/GrenkaUkraine/MemeForge.git"
   },
   "bugs": {
-    "url": "https://github.com/ваш-username/memeforge/issues"
+    "url": "https://github.com/GrenkaUkraine/MemeForge/issues"
   },
   "dependencies": {
     "canvas": "^3.0.0"
