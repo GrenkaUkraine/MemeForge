@@ -1,5 +1,5 @@
 {
-  "name": "memeforge",
+  "name": "@GrenkaUkraine/memeforge",
   "version": "1.0.2",
   "description": "A powerful Node.js library for creating memes, image effects, and funny visuals with ease.",
   "main": "src/index.mjs",
