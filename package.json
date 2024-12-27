@@ -1,0 +1,32 @@
+{
+  "name": "memeforge",
+  "version": "1.0.0",
+  "description": "A powerful Node.js library for creating memes, image effects, and funny visuals with ease.",
+  "main": "src/index.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "node test/test.mjs"
+  },
+  "keywords": [
+    "meme",
+    "image-processing",
+    "nodejs",
+    "effects",
+    "demotivators",
+    "fish-eye",
+    "fun"
+  ],
+  "author": "GrenkaUkraine",
+  "license": "MIT",
+  "homepage": "https://github.com/ваш-username/memeforge#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ваш-username/memeforge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ваш-username/memeforge/issues"
+  },
+  "dependencies": {
+    "canvas": "^3.0.0"
+  }
+}
