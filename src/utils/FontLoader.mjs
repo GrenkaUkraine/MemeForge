@@ -7,11 +7,16 @@ export class FontLoader {
     }
 
     static register(fontsDirPath, fontFile, name) {
-        const absoluteFontPath = path.resolve(fontsDirPath, fontFile);
+        console.log(new URL(import.meta.url).pathname.slice(1));
+        
+        const moduleDir = new URL(import.meta.url).pathname.slice(1);
+        console.log(path.resolve(moduleDir, fontsDirPath, fontFile));
+        
+        const absoluteFontPath = path.resolve(moduleDir, fontsDirPath, fontFile);
         this.registerAbsolutePath(absoluteFontPath, name);
     }
 
     static load() {
-        this.register("./src/assets/fonts", "impact.ttf", "Impact");
+        this.register("../../assets/fonts", "impact.ttf", "Impact");
     }
 }

@@ -26,9 +26,8 @@ import { ClassicMemeGenerator } from 'memeforge';
 const meme = new ClassicMemeGenerator('path/to/image.jpg');
 
 (async () => {
-    await meme.generate('Верхний текст', 'Нижний текст');
-    const buffer = meme.canvas.toBuffer();
-    require('fs').writeFileSync('output.jpg', buffer);
+    await meme.generate('Top text', 'Bottom text');
+    meme.saveToFile("output.png");
 })();
 ```
 
@@ -40,9 +39,8 @@ import { DemotivatorGenerator } from 'memeforge';
 const demotivator = new DemotivatorGenerator('path/to/image.jpg');
 
 (async () => {
-    await demotivator.generate('Заголовок', 'Подзаголовок');
-    const buffer = demotivator.canvas.toBuffer();
-    require('fs').writeFileSync('output_demotivator.jpg', buffer);
+    await demotivator.generate('Title', 'Subtitle');
+    demotivator.saveToFile("output.png");
 })();
 ```
 
@@ -51,12 +49,11 @@ Example of using `GreatPeopleQuoteGenerator`:
 ```javascript
 import { GreatPeopleQuoteGenerator } from 'memeforge';
 
-const quoteImage = new GreatPeopleQuoteGenerator('path/to/background.jpg');
+const quoteImage = new GreatPeopleQuoteGenerator('path/to/avatar.jpg');
 
 (async () => {
-    await quoteImage.generate('Цитата дня', 'Секрет успеха в упорстве.', 'Конфуций');
-    const buffer = quoteImage.canvas.toBuffer();
-    require('fs').writeFileSync('quote.jpg', buffer);
+    await quoteImage.generate('Title', 'Quote', 'Author');
+    quoteImage.saveToFile("output.png");
 })();
 ```
 
