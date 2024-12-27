@@ -18,7 +18,7 @@ export class GreatPeopleQuoteGenerator extends BaseGenerator {
         this.fontSettingsAuthor = fontSettingsAuthor;
         this.maxQuoteWidth = maxQuoteWidth;
 
-        this.imageSize = 50;
+        this.imageSize = 80;
         this.padding = 30;
         this.gap = 25;
         this.authorMerge = 10;
