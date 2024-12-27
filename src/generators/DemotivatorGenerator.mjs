@@ -98,12 +98,12 @@ export class DemotivatorGenerator extends BaseGenerator {
                 if (currentLine.length > 0) {
                     lines.push(currentLine);
                 }
-                currentLine = word; // Начинаем новую строку с текущего слова
+                currentLine = word;
             }
         });
 
         if (currentLine.length > 0) {
-            lines.push(currentLine); // Добавляем последнюю строку, если есть
+            lines.push(currentLine);
         }
 
         return lines;
@@ -131,14 +131,12 @@ export class DemotivatorGenerator extends BaseGenerator {
         const topTextHeight = this.imageHeight + this.padding + this.borderPadding + this.borderWeight + this.fontSettingsTopText.fontSize;
         this.context.fillText(topText, this.canvas.width / 2, topTextHeight);
 
-        // Обработка переноса нижнего текста
-        const maxBottomTextWidth = this.imageWidth; // Ширина, на которой нужно переносить текст
+        const maxBottomTextWidth = this.imageWidth;
         const lines = this.breakTextIntoLines(bottomText, maxBottomTextWidth);
 
         let yOffset = topTextHeight + this.fontSettingsBottomText.fontSize + 10;
         this.fontSettingsBottomText.applySettings(this.context);
 
-        // Рисуем каждую строку нижнего текста
         lines.forEach((line, index) => {
             this.context.fillText(line, this.canvas.width / 2, yOffset + (index * this.fontSettingsBottomText.fontSize));
         });

@@ -1,3 +1,5 @@
+import { ClassicMemeGenerator } from '../src/generators/ClassicMemeGenerator.mjs';
+import { GreatPeopleQuoteGenerator } from '../src/generators/GreatPeopleQuoteGeneratorю.mjs';
 import { DemotivatorGenerator } from '../src/index.mjs';
 import path from 'path';
 
@@ -22,7 +24,35 @@ class TestMemeForge {
 
         demotivatorGenerator.saveToFile(path.join(this.testOutputDir, testName + ".png"));
     }
+
+    async testClassicMeme() {
+        const testName = 'ClassicMeme';
+
+
+        const classicMemeGenerator = new ClassicMemeGenerator(
+            this.testImagePath
+        );
+
+        await classicMemeGenerator.generate(testName, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+
+        classicMemeGenerator.saveToFile(path.join(this.testOutputDir, testName + ".png"));
+    }
+
+    async testGreatPeopleQuote() {
+        const testName = 'GreatPeopleQuote';
+
+
+        const greatPeopleQuoteGenerator = new GreatPeopleQuoteGenerator(
+            this.testImagePath
+        );
+
+        await greatPeopleQuoteGenerator.generate(testName, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "GrenkaUkraine");
+
+        greatPeopleQuoteGenerator.saveToFile(path.join(this.testOutputDir, testName + ".png"));
+    }
 }
 
 const test = new TestMemeForge();
 test.testDemotivator().catch(console.error);
+test.testClassicMeme().catch(console.error);
+test.testGreatPeopleQuote().catch(console.error);
