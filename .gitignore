@@ -134,3 +134,5 @@ package-lock.json
 test/output/
 
 test-image2.jpg
+
+.npmrc
